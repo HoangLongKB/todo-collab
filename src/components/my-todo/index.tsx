@@ -89,6 +89,8 @@ function MyTodo() {
   useEffect(() => {
     if (todoListDocs && todoListDocs.length > 0) {
       dispatch(todosSlice.actions.createTodos(todoListDocs));
+    } else {
+      dispatch(todosSlice.actions.createTodos([]));
     }
   }, [todoListDocs, dispatch]);
 
@@ -282,7 +284,6 @@ function MyTodo() {
               <Row></Row>
               <Row>
                 <Progress
-                  style={{ width: '200px' }}
                   percent={user?.progress}
                   size="small"
                   status={user?.progress !== 100 ? 'active' : 'success'}

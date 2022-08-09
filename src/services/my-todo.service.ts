@@ -50,13 +50,16 @@ export const deleteTodo = async (uid: string, id: string) => {
 const updateProgress = async (uid: string) => {
   const { db } = authenticationSelector(store.getState());
   const todoList = todosSelector(store.getState());
-  const completedCount = todoList.reduce((prev, todo) => {
-    if (todo.completed) {
-      return prev + 1; 
-    }
-    return prev;
-  }, 0);
-  const progress = ((completedCount/todoList.length)*100).toFixed(1);
+  let progress = 0;
+  if (todoList && todoList.length > 0) {
+    const completedCount = todoList.reduce((prev, todo) => {
+      if (todo.completed) {
+        return prev + 1; 
+      }
+      return prev;
+    }, 0);
+    progress = +((completedCount/todoList.length)*100).toFixed(1);
+  }
   const userDocRef = doc(db, 'users', uid);
   await updateDoc(userDocRef, {progress});
 }
