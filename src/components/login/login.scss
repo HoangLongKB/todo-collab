@@ -1,0 +1,29 @@
+@import "./../../common/scss/mixins.scss";
+
+.login {
+  min-height: 100%;
+
+  &__form-wrapper {
+    height: fit-content;
+  }
+
+  &__form {
+    label {
+      font-weight: 500;
+    }
+    &-action {
+      @include flex-parent($justify: space-between);
+    }
+  }
+
+  &__form-header {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    h1 {
+      margin: 0;
+    }
+    p {
+      opacity: 0.7;
+    }
+  }
+}

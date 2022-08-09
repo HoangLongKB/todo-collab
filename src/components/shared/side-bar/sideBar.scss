@@ -1,0 +1,13 @@
+@import './../../../common/scss/mixins.scss';
+
+.sidebar {
+  height: 100%;
+
+  ul {
+    height: inherit;
+  }
+
+  .ant-menu-item {
+    font-weight: 500;
+  }
+}

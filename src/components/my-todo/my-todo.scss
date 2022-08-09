@@ -1,0 +1,58 @@
+@import './../../common/scss/mixins.scss';
+.my-todo {
+  height: 100%;
+  background-color: white;
+
+  &__wrapper {
+    height: 100%;
+    .ant-form-item {
+      margin-right: 0px;
+    }
+  }
+
+  &__action {
+    &-add {
+      width: 100%;
+      &--input {
+        flex: auto !important;
+      }
+    }
+  }
+
+  &__item {
+    &-input {
+      border: none;
+      font-weight: 500;
+      color: dimgrey;
+      height: 2.5rem;
+      @include flex-parent($justify: flex-start, $align: center);
+      padding-left: 11px;
+
+      &--completed {
+        color: rgb(204, 204, 204);
+      }
+
+      &:focus{
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    .editing-todo {
+      border-bottom: 1px solid rgb(231, 231, 231);
+    }
+  }
+
+  &__content {
+    min-width: 50%;
+  }
+
+  &__header-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  &__title {
+    font-weight: 500;
+    margin: 0;
+  }
+}
